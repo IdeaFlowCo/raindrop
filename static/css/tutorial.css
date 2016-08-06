@@ -1,0 +1,44 @@
+.tutorial-list {
+  text-align: left;
+}
+
+.tutorial-footer-background {
+  height: 958px;
+  border: none;
+  background-color: #15ABFF;
+}
+
+@media(min-width: 940px) {
+  .tutorial-footer-background {
+    background-size: 1024px 958px;
+    background: #15ABFF url(/assets/tutorial_footer.svg) no-repeat center 26px;
+  }
+}
+
+.header-content {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.tutorial-footer-section {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.tutorial-footer-content {
+  transform: translateY(-50%);
+  top: 40%;
+  position: relative;
+}
+
+
+.tutorial-header-background {
+  background: #15ABFF;
+  height: 150px;
+}
+
+.tutorial-title.title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+}

@@ -1,0 +1,302 @@
+@font-face {
+  font-family: 'Avenir Next LT Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT Regular'), url('/fonts/regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT Medium'), url('/fonts/medium.woff') format('woff');
+}
+
+body {
+  font-family: "Avenir Next LT Regular", sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+a, a:hover, a:active, a:focus {
+  text-decoration: none;
+}
+
+.light-border {
+  border: 1px solid #B4B4B4;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.small-text {
+  font-size: 16px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.vertical-spacing {
+  height: 30px;
+}
+
+.grey-background {
+  background: #F8F8F8;
+  border: none;
+}
+
+.horizontal-text-spacing {
+  display: inline-block;
+  width: 30px;
+}
+
+.clear-button {
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 8px;
+  color: white;
+  padding: 4px 15px;
+  font-size: 14px;
+  min-width: 70px;
+  line-height: 20px;
+}
+
+.clear-button:hover {
+  background: white;
+  color: #15ABFF;
+}
+
+/** Navigation styles **/
+
+.navbar-brand {
+  color: white;
+}
+
+.nav>li>a:focus,
+.nav>li>a:hover {
+  background:transparent;
+}
+
+.icon-bar {
+  background-color: white;
+}
+
+.navbar-nav>li>a {
+  color: white;
+  cursor: pointer;
+}
+
+.navbar-nav>li>a:hover,
+.navbar-nav>li>a:active {
+  opacity: 0.5;
+}
+
+.navigation {
+  max-width: 950px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/** Section styles **/
+
+.section-container {
+  text-align: center;
+  max-width: 544px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.section-title {
+  font-family: "Avenir Next LT Medium", sans-serif;
+  font-size: 24px;
+  margin-bottom:30px;
+}
+
+.section-image {
+  text-align: center;
+  margin: 40px auto 40px;
+}
+
+.section-image img {
+  max-width: 100%;
+}
+
+.section-content {
+  text-align: center;
+  font-size: 18px;
+  line-height: 40px;
+}
+
+
+/** Header styles **/
+
+.header-content {
+  text-align:left;
+  color: #FFFFFF;
+  margin-left: auto;
+  margin-right: auto;
+  top: 40%;
+  position: relative;
+  transform: translateY(-58%);
+}
+
+.header-content .title {
+  font-size:38px;
+}
+
+@media (max-width: 544px) {
+  .header-content .subtitle {
+    margin-bottom: 25px;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 544px) {
+  .header-content .subtitle {
+    margin-bottom: 25px;
+    font-size: 24px;
+  }
+}
+
+.header-button {
+  margin-bottom: 15px;
+}
+
+.header-button-link:not(:last-child) {
+  margin-right: 16px;
+}
+
+.header-button .play-button-icon {
+  height: 15px;
+  width: 15px;
+  margin-right: 5px;
+  margin-bottom: 2px;
+  margin-top: 2px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+.header-button.clear-button.play-button {
+  padding-right: 20px;
+}
+
+.header-button.play-button:hover .play-button-icon {
+  background-image: url("/assets/play_button_filled.svg");
+}
+
+.header-button.play-button .play-button-icon {
+  background-image: url("/assets/play_button.svg");
+}
+
+
+/** Footer styles **/
+
+.footer-item {
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.footer-item a {
+  color: white;
+}
+
+.footer-item a:hover {
+  opacity: 0.5;
+}
+
+.footer-item:not(:last-child) {
+  margin-right: 20px;
+}
+
+.footer-top {
+  margin-bottom: 25px;
+}
+
+.footer-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 544px) {
+  .footer-title {
+    font-size: 22px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 544px) {
+  .footer-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+}
+
+.footer-content {
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 60px;
+  line-height: 28px;
+}
+
+.footer-content a {
+  color: white;
+}
+
+.footer-button-link:hover, .footer-button-link:active, .footer-content a:hover, .footer-content a:active {
+  opacity: 0.5;
+}
+
+.footer-button-link:not(:last-child) {
+  margin-right: 35px;
+}
+
+.footer-icon {
+  color: white;
+  font-size: 24px;
+}
+
+.copyright {
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+
+/** Header and footer backgrounds **/
+
+.header-background {
+  height: 625px;
+  border: none;
+  background-color: #15ABFF;
+}
+
+.footer-background {
+  height: 340px;
+  border: none;
+  background-color: #15ABFF;
+}
+
+@media(min-width: 940px) {
+  .header-background {
+    background-size: 908px 574px;
+    background: #15ABFF url(/assets/header.svg) no-repeat center 26px;
+  }
+
+  .footer-background {
+    background-size: 1024px 340px;
+    background: #15ABFF url(/assets/footer.svg) no-repeat center 40px;
+  }
+}
+
+
