@@ -1,4 +1,10 @@
 {
+  "description": "The landing page for IdeaFlow.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IdeaFlowCo/raindrop"
+  },
+  "license": "ISC",
   "dependencies": {
     "express": "^4.14.0"
   }
