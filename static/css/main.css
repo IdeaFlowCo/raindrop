@@ -59,9 +59,9 @@ a, a:hover, a:active, a:focus {
 
 .clear-button {
   background: transparent;
-  border: 1px solid white;
+  border: 1px solid #FFFFFF;
   border-radius: 8px;
-  color: white;
+  color: #FFFFFF;
   padding: 4px 15px;
   font-size: 14px;
   min-width: 70px;
@@ -69,14 +69,14 @@ a, a:hover, a:active, a:focus {
 }
 
 .clear-button:hover {
-  background: white;
+  background: #FFFFFF;
   color: #15ABFF;
 }
 
 /** Navigation styles **/
 
 .navbar-brand {
-  color: white;
+  color: #FFFFFF;
 }
 
 .nav>li>a:focus,
@@ -85,11 +85,11 @@ a, a:hover, a:active, a:focus {
 }
 
 .icon-bar {
-  background-color: white;
+  background-color: #FFFFFF;
 }
 
 .navbar-nav>li>a {
-  color: white;
+  color: #FFFFFF;
   cursor: pointer;
 }
 
@@ -100,9 +100,7 @@ a, a:hover, a:active, a:focus {
 
 .navigation {
   max-width: 950px;
-  margin-top: 10px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 10px auto -60px;
 }
 
 
@@ -123,7 +121,7 @@ a, a:hover, a:active, a:focus {
 
 .section-image {
   text-align: center;
-  margin: 40px auto 40px;
+  margin: 50px auto 50px;
 }
 
 .section-image img {
@@ -144,27 +142,18 @@ a, a:hover, a:active, a:focus {
   color: #FFFFFF;
   margin-left: auto;
   margin-right: auto;
-  top: 40%;
+  top: 50%;
   position: relative;
   transform: translateY(-58%);
 }
 
 .header-content .title {
-  font-size:38px;
+  font-size: 38px;
 }
 
-@media (max-width: 544px) {
-  .header-content .subtitle {
-    margin-bottom: 25px;
-    font-size: 18px;
-  }
-}
-
-@media (min-width: 544px) {
-  .header-content .subtitle {
-    margin-bottom: 25px;
-    font-size: 24px;
-  }
+.header-content .subtitle {
+  font-size: 20px;
+  margin-bottom: 25px;
 }
 
 .header-button {
@@ -172,7 +161,7 @@ a, a:hover, a:active, a:focus {
 }
 
 .header-button-link:not(:last-child) {
-  margin-right: 16px;
+  margin-right: 10px;
 }
 
 .header-button .play-button-icon {
@@ -208,7 +197,7 @@ a, a:hover, a:active, a:focus {
 }
 
 .footer-item a {
-  color: white;
+  color: #FFFFFF;
 }
 
 .footer-item a:hover {
@@ -243,7 +232,7 @@ a, a:hover, a:active, a:focus {
 }
 
 .footer-content {
-  color: white;
+  color: #FFFFFF;
   text-align: center;
   font-size: 16px;
   margin-top: 60px;
@@ -251,7 +240,7 @@ a, a:hover, a:active, a:focus {
 }
 
 .footer-content a {
-  color: white;
+  color: #FFFFFF;
 }
 
 .footer-button-link:hover, .footer-button-link:active, .footer-content a:hover, .footer-content a:active {
@@ -263,7 +252,7 @@ a, a:hover, a:active, a:focus {
 }
 
 .footer-icon {
-  color: white;
+  color: #FFFFFF;
   font-size: 24px;
 }
 
@@ -274,6 +263,10 @@ a, a:hover, a:active, a:focus {
 
 
 /** Header and footer backgrounds **/
+
+.blue-background {
+  background-color: #15ABFF;
+}
 
 .header-background {
   height: 625px;
