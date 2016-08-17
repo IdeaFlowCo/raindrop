@@ -101,7 +101,7 @@ class Home extends React.Component {
                         </div>
                     </Section>
                 </div>
-                <Section className="grey-background" title="Connect information on the Web like you do in your brain" imageUrl="/assets/connect_ideas.png">
+                <Section className="grey-background" title="Connect information on the Web like you do in your brain" imageUrl="/assets/connect-ideas.png">
                     Human semantic memory stores knowledge in graphs, but text documents can't represent them.
                 </Section>
                 <div ref="contact" className="container-fluid footer-background">
