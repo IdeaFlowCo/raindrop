@@ -83,7 +83,7 @@ class Home extends React.Component {
                     </div>
                 </div>
                 <div ref="about">
-                    <Section className="grey-background" title="A shared brain for organizations" imageUrl="/assets/shared_brain.png">
+                    <Section className="grey-background" title="A shared brain for organizations" imageUrl="/assets/shared-brain.svg">
                         Let's face it, we like to work together. Collaboratively build and manage your networks &mdash; of people, ideas, and knowledge.
                     </Section>
                 </div>
@@ -101,7 +101,7 @@ class Home extends React.Component {
                         </div>
                     </Section>
                 </div>
-                <Section className="grey-background" title="Connect information on the Web like you do in your brain" imageUrl="/assets/connect_ideas.png">
+                <Section className="grey-background" title="Connect information on the Web like you do in your brain" imageUrl="/assets/connect-ideas.png">
                     Human semantic memory stores knowledge in graphs, but text documents can't represent them.
                 </Section>
                 <div ref="contact" className="container-fluid footer-background">
