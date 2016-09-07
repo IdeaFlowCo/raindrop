@@ -26,6 +26,10 @@ a, a:hover, a:active, a:focus {
   text-decoration: none;
 }
 
+iframe {
+  border: none;
+}
+
 .full-window-height {
   min-height: 625px;
   height: 100vh;
@@ -83,6 +87,25 @@ a, a:hover, a:active, a:focus {
 .clear-button:hover {
   background: #FFFFFF;
   color: #15ABFF;
+}
+
+.button {
+  border-radius: 30px;
+  color: #FFFFFF;
+  padding: 10px 40px;
+  font-size: 16px;
+  min-width: 100px;
+  line-height: 20px;
+  border: none;
+}
+
+.yellow-button {
+  background: #FFCC2E;
+}
+
+.inline-spacing {
+  width: 15px;
+  display: inline-block;
 }
 
 /** Navigation styles **/
@@ -148,6 +171,22 @@ a, a:hover, a:active, a:focus {
   line-height: 40px;
 }
 
+
+/** Call to action styles **/
+
+.person-image {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-left: -115px;
+  bottom: -70px;
+}
+
+.call-to-action-container {
+  position: relative;
+  margin-top: 40px;
+  margin-bottom: -10px;
+}
 
 /** Header styles **/
 
@@ -289,17 +328,17 @@ a, a:hover, a:active, a:focus {
 }
 
 .blue-background {
-  background-color: #15ABFF;
+  background-color: #011B32;
 }
 
 .header-background {
   height: 100vh;
   border: none;
-  background-color: #15ABFF;
+  background-color: #011B32;
 }
 
 .footer-background {
   height: 340px;
   border: none;
-  background-color: #15ABFF;
+  background-color: #011B32;
 }

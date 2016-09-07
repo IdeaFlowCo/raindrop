@@ -2,11 +2,11 @@ var React   = require('react');
 
 class Section extends React.Component {
     render() {
-        let imageElement = (
+        let imageElement = this.props.imageUrl ? (
             <div className="section-image">
-                <img className={ this.props.imageClassName} src={ this.props.imageUrl }/>
+                <img className={ this.props.imageClassName} width={this.props.imageWidth} height={this.props.imageHeight} src={ this.props.imageUrl }/>
             </div>
-        );
+        ) : null;
 
         let titleElement = (
             <div className="section-title">
