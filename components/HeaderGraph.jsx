@@ -10,17 +10,17 @@ const DEFAULT_GRAPH_STYLE = {
     'short_distance_opacities': {
         'circle_opacity': 0.6,
         'line_opacity': 0.6,
-        'max_distance': 50
+        'max_distance': 80
     },
     'medium_distance_opacities': {
-        'circle_opacity': 0.3,
-        'line_opacity': 0.3,
-        'max_distance': 100
+        'circle_opacity': 0.4,
+        'line_opacity': 0.4,
+        'max_distance': 200
     },
     'long_distance_opacities': {
-        'circle_opacity': 0.02,
+        'circle_opacity': 0.1,
         'line_opacity': 0.1,
-        'max_distance': 150
+        'max_distance': 300
     },
     'infinite_distance_opacities': {
         'circle_opacity': 0.0,
@@ -215,7 +215,7 @@ class HeaderGraph extends React.Component {
             this.context.beginPath();
             this.context.moveTo(p.x, p.y);
             this.context.lineTo(p.closest[i].x, p.closest[i].y);
-            this.context.strokeStyle = 'rgba(255,255,255,' + p.active + ')';
+            this.context.strokeStyle = 'rgba(46,100,153,' + p.active + ')';
             this.context.stroke();
         }
     }

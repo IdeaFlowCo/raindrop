@@ -36,6 +36,7 @@
     "react": "0.14.7",
     "react-addons-update": "0.14.7",
     "react-dom": "0.14.6",
+    "react-modal": "^1.4.0",
     "react-spinner": "^0.2.3",
     "uglify-js": "2.4.24",
     "underscore": "1.8.3"

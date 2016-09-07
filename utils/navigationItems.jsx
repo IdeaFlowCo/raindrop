@@ -1,6 +1,6 @@
 module.exports = {
-    "about": "About",
     "product": "Product",
+    "about": "About",
     "contact": "Contact",
     "tutorial": "Tutorial"
 };

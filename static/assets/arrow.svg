@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="19px" height="11px" viewBox="0 0 19 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>Arrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="How-it-works" transform="translate(-704.000000, -1038.000000)" fill="#FFFFFF">
+            <g id="Button" transform="translate(530.000000, 1020.000000)">
+                <g id="Arrow" transform="translate(174.000000, 18.000000)">
+                    <path d="M17.828,5.953 C17.688,6.093 17.514,6.164 17.334,6.204 L13.586,9.952 C13.195,10.344 12.562,10.344 12.172,9.952 C11.781,9.562 11.781,8.929 12.172,8.538 L14.585,6.125 L1,6.125 C0.448,6.125 0,5.677 0,5.125 C0,4.573 0.448,4.125 1,4.125 L14.587,4.125 L12.172,1.71 C11.781,1.319 11.781,0.686 12.172,0.296 C12.562,-0.095 13.195,-0.095 13.586,0.296 L17.327,4.037 C17.51,4.072 17.685,4.153 17.828,4.295 C18.055,4.522 18.134,4.829 18.098,5.124 C18.134,5.419 18.055,5.726 17.828,5.953 L17.828,5.953 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

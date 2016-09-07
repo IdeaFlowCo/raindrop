@@ -10,7 +10,7 @@ module.exports = class {
         if (!this.active) return;
         context.beginPath();
         context.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI, false);
-        context.fillStyle = 'rgba(255,255,255,' + this.active + ')';
+        context.fillStyle = 'rgba(46,100,153,' + this.active + ')';
         context.fill();
     }
 };
