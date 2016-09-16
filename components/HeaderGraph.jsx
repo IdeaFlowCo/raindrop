@@ -1,6 +1,7 @@
-var React       = require('react');
-var $           = require('jquery');
-var Circle      = require('../utils/circle');
+var React           = require('react');
+var $               = require('jquery');
+var Circle          = require('../utils/circle');
+var MouseRandomizer = require('../utils/mouseRandomizer');
 
 if (typeof window !== 'undefined') {
     var gsap = require('gsap');
@@ -8,18 +9,18 @@ if (typeof window !== 'undefined') {
 
 const DEFAULT_GRAPH_STYLE = {
     'short_distance_opacities': {
-        'circle_opacity': 0.6,
-        'line_opacity': 0.6,
+        'circle_opacity': 0.7,
+        'line_opacity': 0.7,
         'max_distance': 80
     },
     'medium_distance_opacities': {
-        'circle_opacity': 0.4,
-        'line_opacity': 0.4,
+        'circle_opacity': 0.1,
+        'line_opacity': 0.1,
         'max_distance': 200
     },
     'long_distance_opacities': {
-        'circle_opacity': 0.1,
-        'line_opacity': 0.1,
+        'circle_opacity': 0.01,
+        'line_opacity': 0.01,
         'max_distance': 300
     },
     'infinite_distance_opacities': {
@@ -36,6 +37,9 @@ class HeaderGraph extends React.Component {
         super(props);
         this.animateHeader = true;
 
+        this.mouseRandomizer = new MouseRandomizer();
+        this.mouseRandomizer.start(this.props.canvasWidth, this.props.canvasHeight, this.mouseMoveHandler);
+
         this.mouseMoveHandler = (e) => {
             let posx = 0;
             let posy = 0;
@@ -51,6 +55,10 @@ class HeaderGraph extends React.Component {
         };
 
         this.resizeHandler = () => {
+            if (this.requestId) {
+                window.cancelAnimationFrame(this.requestId);
+                this.requestId = null;
+            }
             this.removeListeners();
             this.initHeader();
             this.initAnimation();
@@ -65,6 +73,7 @@ class HeaderGraph extends React.Component {
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.canvasWidth !== this.props.canvasWidth || prevProps.canvasHeight !== this.props.canvasHeight) {
           this.resizeHandler();
+          this.mouseRandomizer.start(this.props.canvasWidth, this.props.canvasHeight, this.mouseMoveHandler);
         }
     }
 
@@ -182,7 +191,7 @@ class HeaderGraph extends React.Component {
                 this.points[i].circle.draw(this.context);
             }
         }
-        requestAnimationFrame(() => this.animate());
+        this.requestId = requestAnimationFrame(() => this.animate());
     }
 
     shiftPoint(p) {
@@ -196,16 +205,10 @@ class HeaderGraph extends React.Component {
     }
 
     addListeners() {
-        if (!('ontouchstart' in window)) {
-            window.addEventListener('mousemove', this.mouseMoveHandler);
-        }
         window.addEventListener('scroll', this.scrollHandler);
     }
 
     removeListeners() {
-        if (!('ontouchstart' in window)) {
-            window.removeEventListener('mousemove', this.mouseMoveHandler);
-        }
         window.removeEventListener('scroll', this.scrollHandler);
     }
 
@@ -215,7 +218,7 @@ class HeaderGraph extends React.Component {
             this.context.beginPath();
             this.context.moveTo(p.x, p.y);
             this.context.lineTo(p.closest[i].x, p.closest[i].y);
-            this.context.strokeStyle = 'rgba(46,100,153,' + p.active + ')';
+            this.context.strokeStyle = 'rgba(144,229,244,' + p.active + ')';
             this.context.stroke();
         }
     }

@@ -26,9 +26,7 @@ class NavigationBar extends React.Component {
 
     getItemHandler(key) {
         return () => {
-            if (this.props.router) {
-                this.props.router.navigate('/' + key, true);
-            }
+            this.props.navigationItemHandler(key);
         }
     }
 }

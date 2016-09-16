@@ -2,7 +2,6 @@ var Backbone        = require('backbone');
 var React           = require('react');
 var ReactDOM        = require('react-dom');
 var Home            = require('../pages/home');
-var Tutorial        = require('../pages/tutorial');
 var navigationItems = require('../utils/navigationItems');
 
 window.jQuery = require('jquery');
@@ -33,20 +32,13 @@ var Router = Backbone.Router.extend({
     },
     product: () => {
         ReactDOM.render(
-            <Home router={ routerInstance } active="product" />,
+            <Home router={ routerInstance } active="home" />,
             document.getElementById('react-root')
         );
     },
     contact: () => {
         ReactDOM.render(
             <Home router={ routerInstance } active="contact" />,
-            document.getElementById('react-root')
-        );
-    },
-    tutorial: () => {
-        window.scrollTo(0, 0);
-        ReactDOM.render(
-            <Tutorial router={ routerInstance } />,
             document.getElementById('react-root')
         );
     }

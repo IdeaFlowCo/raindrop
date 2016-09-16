@@ -1,0 +1,239 @@
+/** Graph Styles **/
+
+.edge {
+  stroke: rgb(215, 218, 220);
+  stroke-width: 2;
+}
+
+.node {
+  cursor: move;
+  border-radius: 2px;
+}
+
+.purple {
+  fill: rgb(214, 156, 244);
+}
+
+.blue {
+  fill: rgb(123, 202, 220);
+}
+
+.orange {
+  fill: rgb(245, 193, 105);
+}
+
+.green {
+  fill: rgb(76, 196, 86);
+}
+
+.magenta {
+  fill: rgb(244, 122, 171);
+}
+
+.red {
+  fill: rgb(227, 117, 111);
+}
+
+.label {
+  fill: rgb(255, 255, 255);
+  font-size: 14px;
+}
+
+
+/** Demo app styles **/
+
+.idea-view, .graph-view-container {
+  background: #F7F7F7;
+  width: 600px;
+  border: 1px solid #EFEFEF;
+  border-radius: 8px;
+  margin: 40px auto;
+  position: relative;
+}
+
+.idea-view {
+  max-height: 600px;
+  padding: 20px;
+  overflow: scroll;
+  -ms-overflow-style: none;  // IE 10+
+  overflow: -moz-scrollbars-none;  // Firefox
+}
+
+.idea-input {
+  width: 100%;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border: 1px solid #F0F0F0;
+  border-radius: 5px;
+}
+
+.idea-item {
+  background: #FFFFFF;
+  border: 1px solid #F0F0F0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.idea-view::-webkit-scrollbar {
+  display: none;  // Safari and Chrome
+}
+
+.idea-text {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.graph-view-container {
+  width: 600px;
+  height: 600px;
+  padding: 20px;
+}
+
+.graph-view {
+  border: 1px solid #F0F0F0;
+  background: #FFFFFF;
+  border-radius: 5px;
+}
+
+.ideaflow-step {
+  border-radius: 50%;
+  border: none;
+  width: 30px;
+  height: 30px;
+  color: #FFFFFF;
+  font-size: 12px;
+  background: #FFE13F;
+  outline: none;
+  margin-left: -30px;
+}
+
+.ideaflow-step-middle {
+  margin-left: 120px;
+}
+
+.ideaflow-step:hover, .ideaflow-step:active {
+  background: #FFF14F;
+}
+
+.ideaflow-step-right {
+  margin-left: 120px;
+}
+
+.ideaflow-line, .ideaflow-line-right {
+  background: #FFE13F;
+  height: 2px;
+  width: 120px;
+  display: inline-block;
+}
+
+.ideaflow-line {
+  margin-left: -300px;
+}
+
+.ideaflow-line-right {
+  margin-left: 30px;
+}
+
+.ideaflow-selector {
+  text-align: center;
+}
+
+.delete-item {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  color: #999999;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.delete-item:hover, .delete-item:active {
+  opacity: 0.5;
+  color: #D0021B;
+}
+
+.ideaflow-selector-label-container {
+  display: block;
+  width: 330px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  margin-top: 10px;
+  color: #FFFFFF;
+
+  .left-label {
+    left: 0;
+    position: absolute;
+    display: inline-block;
+  }
+
+  .middle-label {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+  }
+
+  .right-label {
+    right: 0;
+    position: absolute;
+    display: inline-block;
+  }
+}
+
+
+/** Multi Select overrides **/
+
+.Select-control {
+  margin-bottom: 10px;
+  margin-top: 5px;
+  border: 1px solid #F0F0F0;
+}
+
+.Select--multi .Select-value {
+  background-color: transparent;
+  color: #6CD4E5;
+  border-color: #6CD4E5;
+}
+
+.is-focused:not(.is-open) > .Select-control {
+  border: 1px solid #F0F0F0;
+  box-shadow: none;
+}
+
+.is-open > .Select-control {
+  border-color: #F0F0F0;
+}
+
+.Select-menu-outer {
+  border-color: #F0F0F0;
+  background: #FFFFFF;
+}
+
+.Select-control:hover {
+  box-shadow: none;
+}
+
+.Select-option.is-selected {
+  background-color: #7CE4F5;
+  color: #FFFFFF;
+}
+
+.Select-option.is-focused {
+  background-color: #7CE4F5;
+  color: #FFFFFF;
+}
+
+.Select--multi .Select-value-icon:hover,
+.Select--multi .Select-value-icon:focus {
+  background-color: #7CE4F5;
+  color: #FFFFFF;
+}
+
+.Select--multi .Select-value-icon {
+  border-right: 1px solid #6CD4E5;
+}

@@ -5,7 +5,6 @@ var jade      = require('jade');
 var React     = require('react');
 var ReactDOM  = require('react-dom/server');
 var Home      = require('./pages/home.jsx');
-var Tutorial  = require('./pages/tutorial.jsx');
 
 var app = express();
 var port = process.env.PORT || 3000;
@@ -20,20 +19,12 @@ switch (env) {
 }
 
 var HomeFactory = React.createFactory(Home);
-var TutorialFactory = React.createFactory(Tutorial);
 
 app.engine('jade', jade.__express);
 app.set('view engine', 'jade');
 app.set('port', port);
 
 app.use(express.static(path.join(__dirname, 'static')));
-
-app.get('/tutorial', function (req, res) {
-  res.render('page', {
-    title: "Tutorial",
-    react: production ? ReactDOM.renderToString(TutorialFactory()) : ''
-  });
-});
 
 app.get('/*', function (req, res) {
   res.render('page', {

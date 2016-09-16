@@ -1,5 +1,8 @@
 @import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-@import './tutorial.scss';
+@import './ideaflow.scss';
+@import "https://unpkg.com/react-select/dist/react-select.css";
+
+$site-color: #6CD4E5;
 
 @font-face {
   font-family: 'Avenir Next LT Regular';
@@ -28,6 +31,10 @@ a, a:hover, a:active, a:focus {
 
 iframe {
   border: none;
+}
+
+input[type=text] {
+  outline: 0;
 }
 
 .full-window-height {
@@ -108,6 +115,11 @@ iframe {
   display: inline-block;
 }
 
+.Select-control {
+  width: auto;
+}
+
+
 /** Navigation styles **/
 
 .navbar-brand {
@@ -130,7 +142,7 @@ iframe {
 
 .navbar-nav>li>a:hover,
 .navbar-nav>li>a:active {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .navigation {
@@ -153,7 +165,7 @@ iframe {
 .section-title {
   font-family: "Avenir Next LT Medium", sans-serif;
   font-size: 28px;
-  margin-bottom:30px;
+  margin-bottom: 30px;
 }
 
 .section-image {
@@ -195,18 +207,34 @@ iframe {
   color: #FFFFFF;
   margin-left: auto;
   margin-right: auto;
-  top: 50%;
   position: relative;
-  transform: translateY(-58%);
+}
+
+.header-content .title,
+.header-title-text {
+  color: #FFFFFF;
+  font-size: 36px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.header-title-text {
+  margin-top: 120px;
+  margin-bottom: 30px;
 }
 
 .header-content .title {
-  font-size: 38px;
+  margin-bottom: 15px;
 }
 
 .header-content .subtitle {
+  text-align: center;
   font-size: 20px;
   margin-bottom: 25px;
+}
+
+.header-container {
+  position: relative;
 }
 
 .header-button {
@@ -241,6 +269,7 @@ iframe {
 }
 
 
+
 /** Footer styles **/
 
 .footer-item {
@@ -254,11 +283,11 @@ iframe {
 }
 
 .footer-item a:hover {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .footer-item:not(:last-child) {
-  margin-right: 20px;
+  margin-right: 30px;
 }
 
 .footer-top {
@@ -297,7 +326,7 @@ iframe {
 }
 
 .footer-button-link:hover, .footer-button-link:active, .footer-content a:hover, .footer-content a:active {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .footer-button-link:not(:last-child) {
@@ -317,28 +346,32 @@ iframe {
 
 /** Header and footer backgrounds **/
 
-.header-container {
-  height: 100%;
-}
-
-.header-content {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
 .blue-background {
-  background-color: #011B32;
+  background-color: $site-color;
 }
 
 .header-background {
   height: 100vh;
   border: none;
-  background-color: #011B32;
+  background-color: $site-color;
 }
 
 .footer-background {
   height: 340px;
   border: none;
-  background-color: #011B32;
+  background-color: $site-color;
+}
+
+
+/** Ideaflow demo **/
+
+.ideaflow-demo {
+  margin-bottom: 70px;
+  @media (max-width: $screen-sm) {
+    display: none;
+  }
+
+  @media (min-width: $screen-sm) {
+    display: block;
+  }
 }

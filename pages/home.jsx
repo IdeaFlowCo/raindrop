@@ -5,6 +5,8 @@ var Section         = require('../components/section');
 var navigationItems = require('../utils/navigationItems');
 var $               = require('jquery');
 var Modal           = require('react-modal');
+var IdeaflowDemo    = require('../ideaflow-components/ideaflowDemo');
+var Measure         = require('react-measure');
 
 const MODAL_STYLE = {
     overlay : {
@@ -43,6 +45,7 @@ class Home extends React.Component {
         this.state = {
             canvasWidth: 0,
             canvasHeight: 0,
+            scrollRequired: true,
             active: props.active,
             modalOpen: false
         };
@@ -52,7 +55,7 @@ class Home extends React.Component {
                 canvasWidth: $(this.refs.home).width(),
                 canvasHeight: $(this.refs.home).height()
             });
-        }
+        };
     }
 
     componentDidMount() {
@@ -68,23 +71,54 @@ class Home extends React.Component {
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.active !== this.props.active) {
             this.setState({
-                active: this.props.active
+                active: this.props.active,
+                scrollRequired: true
             });
-        } else if (prevState.active !== this.state.active) {
+        } else if (prevState.active !== this.state.active || this.state.scrollRequired) {
             this.updateScrollState();
         }
     }
 
+    getNavigationItemHandler() {
+        return (item) => {
+            this.setState({
+                active: item,
+                scrollRequired: true
+            });
+        };
+    }
+
     updateScrollState() {
         if (this.state.active) {
-            $('html, body').animate({
-                scrollTop: $(this.refs[this.props.active]).offset().top
-            }, 500);
+            switch (this.state.active) {
+                case "product": {
+                    $('html, body').animate({
+                        scrollTop: $(this.refs.home).offset().top
+                    }, 500);
+                    break;
+                }
+                case "about": {
+                    $('html, body').animate({
+                        scrollTop: $(this.refs.about).offset().top
+                    }, 500);
+                    break;
+                }
+                case "contact": {
+                    $('html, body').animate({
+                        scrollTop: $(this.refs.contact).offset().top
+                    }, 500);
+                    break;
+                }
+            }
+
         } else {
             $('html, body').animate({
                 scrollTop: $(this.refs.home).offset().top
             }, 500);
         }
+        this.setState({
+            scrollRequired: false
+        });
     }
 
     render() {
@@ -96,31 +130,32 @@ class Home extends React.Component {
                     style={MODAL_STYLE}>
                     <iframe width="600" height="338" src="https://www.youtube.com/embed/Y7kEWftAUsY?autoplay=1" frameborder="0" allowfullscreen></iframe>
                 </Modal>
-                <div className="full-window-height blue-background container-fluid no-padding">
-                    <NavigationBar router={this.props.router} />
-                    <div ref="home" className="header-container">
-                        <HeaderGraph canvasWidth={ this.state.canvasWidth } canvasHeight={ this.state.canvasHeight }/>
-                        <div className="section-container container header-content">
-                            <div className="title">
-                                IdeaFlow
+                <Measure
+                    onMeasure={(dimensions) => {
+                        this.setState({
+                            canvasWidth: dimensions.width,
+                            canvasHeight: dimensions.height
+                        });
+                    }}>
+                    <div ref="home" className="blue-background container-fluid no-padding">
+                        <HeaderGraph
+                          canvasWidth={this.state.canvasWidth}
+                          canvasHeight={this.state.canvasHeight} />
+                        <NavigationBar
+                          navigationItemHandler={this.getNavigationItemHandler()} />
+                        <div className="header-container">
+                            <div className="hidden-xs header-title-text">This is IdeaFlow.</div>
+                            <IdeaflowDemo
+                                onDimensionChanged={this.resizeHandler} />
+                            <div className="hidden-md hidden-lg hidden-sm section-container container header-content">
+                                <div className="title">This is IdeaFlow.</div>
+                                <div className="subtitle">A database of connected ideas</div>
                             </div>
-                            <div className="subtitle">
-                                A database of connected ideas
-                            </div>
-                            <a className="header-button-link" target="_blank" href="https://ideapad.io/augmented-reality-industry/graph">
-                                <button className="clear-button header-button">
-                                    Try it
-                                </button>
-                            </a>
-                            <button className="play-button clear-button header-button" onClick={() => {this.setState({"modalOpen": true})}}>
-                                <div className="play-button-icon"></div>
-                                Watch video
-                            </button>
                         </div>
                     </div>
-                </div>
-                <div ref="product">
-                    <Section className="grey-background" ref="product" title="IdeaFlow powers everybody to be a superconnector" imageWidth={350} imageHeight={275} imageUrl="/assets/graph_demo.png">
+                </Measure>
+                <div>
+                    <Section className="grey-background" title="IdeaFlow powers everybody to be a superconnector" imageWidth={138} imageHeight={200} imageUrl="/assets/superconnector.png">
                         <div className="full-width text-left">
                             People hold the pieces to each others' puzzles without knowing it. Connect ideas.
                             AI suggests more connections.
@@ -165,7 +200,7 @@ class Home extends React.Component {
                         </div>
                         <div>
                             {
-                                Object.keys(navigationItems).map((key) => <div className="footer-item" key={key}><a onClick={this.getItemHandler(key)}>{ navigationItems[key] }</a></div>)
+                                Object.keys(navigationItems).map((key) => <div className="footer-item" key={key}><a onClick={(event) => this.getNavigationItemHandler()(key)}>{ navigationItems[key] }</a></div>)
                             }
                         </div>
                         <div className="copyright">Copyright © IdeaFlow, Inc. 2016. All Rights Reserved.</div>
@@ -173,14 +208,6 @@ class Home extends React.Component {
                 </div>
             </div>
         );
-    }
-
-    getItemHandler(key) {
-        return () => {
-            if (this.props.router) {
-                this.props.router.navigate('/' + key, true);
-            }
-        }
     }
 }
 
