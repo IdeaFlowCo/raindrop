@@ -32,22 +32,28 @@ class IdeaflowDemo extends React.Component {
     constructor(props) {
         super(props);
         this.state = INITIAL_IDEAS;
+        this.state.selectAddIdea = true;
     }
+
     render() {
         return (
             <div className="ideaflow-demo">
-                <Selector onFirstStepSelected={this.getOnIdeasSelectHandler()}
-                                    onSecondStepSelected={this.getOnGraphSelectHandler()} />
+                <Selector onFirstStepSelected={this.getOnIdeaSelectHandler()}
+                          onSecondStepSelected={this.getOnConnectSelectHandler()}
+                          onThirdStepSelected={this.getOnGraphSelectHandler()} />
                 {
                     this.state.graphVisible ?
                     <GraphView nodes={this.state.ideas}
-                        edges={this.state.connections} /> :
-                    <IdeaView ideas={this.state.ideas}
-                                        connections={this.state.connections}
-                                        newIdeaHandler={this.getNewIdeaHandler()}
-                                        addConnectionHandler={this.getAddConnectionHandler()}
-                                        removeConnectionHandler={this.getRemoveConnectionHandler()}
-                                        deleteItemHandler={this.getDeleteItemHandler()} />
+                               edges={this.state.connections} /> :
+                    <IdeaView ref="ideaView"
+                              ideas={this.state.ideas}
+                              connections={this.state.connections}
+                              newIdeaHandler={this.getNewIdeaHandler()}
+                              addConnectionHandler={this.getAddConnectionHandler()}
+                              removeConnectionHandler={this.getRemoveConnectionHandler()}
+                              deleteItemHandler={this.getDeleteItemHandler()}
+                              selectAddIdea={this.state.selectAddIdea}
+                              selectFirstConnectIdeaField={this.state.selectFirstConnectIdeaField} />
                 }
             </div>
         );
@@ -79,18 +85,40 @@ class IdeaflowDemo extends React.Component {
         }
     }
 
-    getOnIdeasSelectHandler() {
+    getOnIdeaSelectHandler() {
         return () => {
             this.setState({
-                "graphVisible": false
+                "graphVisible": false,
+                "selectAddIdea": true,
+                "selectFirstConnectIdeaField": false
             });
+            if (!this.refs.ideaView) {
+                return;
+            }
+            this.refs.ideaView.selectAddIdea();
+        }
+    }
+
+    getOnConnectSelectHandler() {
+        return () => {
+            this.setState({
+                "graphVisible": false,
+                "selectAddIdea": false,
+                "selectFirstConnectIdeaField": true
+            });
+            if (!this.refs.ideaView) {
+                return;
+            }
+            this.refs.ideaView.selectFirstConnectIdeaField();
         }
     }
 
     getOnGraphSelectHandler() {
         return () => {
             this.setState({
-                "graphVisible": true
+                "graphVisible": true,
+                "selectAddIdea": false,
+                "selectFirstConnectIdeaField": false
             });
         }
     }

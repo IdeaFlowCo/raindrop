@@ -38,7 +38,6 @@ class HeaderGraph extends React.Component {
         this.animateHeader = true;
 
         this.mouseRandomizer = new MouseRandomizer();
-        this.mouseRandomizer.start(this.props.canvasWidth, this.props.canvasHeight, this.mouseMoveHandler);
 
         this.mouseMoveHandler = (e) => {
             let posx = 0;
@@ -81,6 +80,7 @@ class HeaderGraph extends React.Component {
         this.initHeader();
         this.initAnimation();
         this.addListeners();
+        window.addEventListener('scroll', this.scrollHandler);
     }
 
     componentWillUnmount() {

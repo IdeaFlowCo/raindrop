@@ -1,9 +1,26 @@
 var React     = require('react');
 var IdeaItem  = require('./ideaItem');
+var $         = require('jquery');
 
 class IdeaView extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            "selectAddIdea": props.selectAddIdea,
+            "selectFirstConnectIdeaField": props.selectFirstConnectIdeaField
+        };
+    }
+
+    componentDidMount() {
+        if (this.state.selectAddIdea) {
+            this.selectAddIdea();
+        } else if (this.state.selectFirstConnectIdeaField) {
+            this.selectFirstConnectIdeaField();
+        }
+        this.setState({
+            "selectAddIdea": false,
+            "selectFirstConnectIdeaField": false
+        })
     }
 
     render() {
@@ -25,6 +42,14 @@ class IdeaView extends React.Component {
                 }
             </div>
         )
+    }
+
+    selectAddIdea() {
+        $(this.refs.newIdeaInput).focus();
+    }
+
+    selectFirstConnectIdeaField() {
+        $(".Select-input > input").first().focus();
     }
 
     getNewIdeaInputHandler() {

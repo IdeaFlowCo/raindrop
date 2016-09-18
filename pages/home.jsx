@@ -7,6 +7,7 @@ var $               = require('jquery');
 var Modal           = require('react-modal');
 var IdeaflowDemo    = require('../ideaflow-components/ideaflowDemo');
 var Measure         = require('react-measure');
+var classNames      = require('classnames');
 
 const MODAL_STYLE = {
     overlay : {
@@ -47,7 +48,8 @@ class Home extends React.Component {
             canvasHeight: 0,
             scrollRequired: true,
             active: props.active,
-            modalOpen: false
+            modalOpen: false,
+            easterEgg: false
         };
 
         this.resizeHandler = () => {
@@ -128,7 +130,10 @@ class Home extends React.Component {
                     isOpen={this.state.modalOpen}
                     onRequestClose={() => {this.setState({"modalOpen": false})}}
                     style={MODAL_STYLE}>
-                    <iframe width="600" height="338" src="https://www.youtube.com/embed/Y7kEWftAUsY?autoplay=1" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="600" height="338" src="https://www.youtube.com/embed/Y7kEWftAUsY?autoplay=1"
+                            frameborder="0"
+                            allowfullscreen>
+                    </iframe>
                 </Modal>
                 <Measure
                     onMeasure={(dimensions) => {
@@ -155,12 +160,17 @@ class Home extends React.Component {
                     </div>
                 </Measure>
                 <div>
-                    <Section className="grey-background" title="IdeaFlow powers everybody to be a superconnector" imageWidth={138} imageHeight={200} imageUrl="/assets/superconnector.png">
-                        <div className="full-width text-left">
-                            People hold the pieces to each others' puzzles without knowing it. Connect ideas.
-                            AI suggests more connections.
-                            <div className="vertical-spacing"></div>
-                            <span className="small-text">Check out the:<br />
+                    <Section className="grey-background" title="Empower your team"
+                             imageWidth={138}
+                             imageHeight={200}
+                             imageOnClick={() => this.setState({"easterEgg": !this.state.easterEgg})}
+                             imageUrl="/assets/superconnector.png">
+                        <div className="full-width">
+                            People hold the pieces to each others' puzzles without knowing it. Share knowledge with each
+                            other and we will automatically suggest connections. It's that simple.
+                            <div className={classNames("vertical-spacing", {"hidden": !this.state.easterEgg})}></div>
+                            <span className={classNames("small-text", {"hidden": !this.state.easterEgg})}>Check out the:
+                                <br />
                                 <a target="_blank" href="https://ideapad.io/yclist/graph">Hackathon Brainstorming</a>
                                 <span className="horizontal-text-spacing" />
                                 <a target="_blank" href="https://ideapad.io/hackathon-ideas">YC Startup Graph</a>
@@ -169,15 +179,22 @@ class Home extends React.Component {
                     </Section>
                 </div>
                 <div ref="about">
-                    <Section title="A shared brain for organizations" imageWidth={344} imageHeight={282} imageUrl="/assets/collaboration.png">
+                    <Section title="A shared brain for teams"
+                             imageWidth={344}
+                             imageHeight={282}
+                             imageUrl="/assets/collaboration.png">
                         Let's face it, we like to work together. Collaboratively build and manage your networks &mdash; of people, ideas, and knowledge.
                     </Section>
                 </div>
-                <Section className="grey-background" title="Connect information on the Web like you do in your brain" imageWidth={404} imageHeight={72} imageUrl="/assets/linked_ideas.svg">
-                    Human semantic memory stores knowledge in graphs, but text documents can't represent them.
+                <Section className="grey-background"
+                         title="Better connected"
+                         imageWidth={404}
+                         imageHeight={72}
+                         imageUrl="/assets/linked_ideas.svg">
+                    Our minds work by connected ideas. Take collaboration beyond simple documents. Live the future.
                     <div className="call-to-action-container">
                         <img className="person-image" height={78} src="/assets/person.png" />
-                        <a href="https://ideapad.io/augmented-reality-industry/graph">
+                        <a href="mailto:pleasecontact@ideapad.io">
                             <button className="button yellow-button">
                                 Get Started<div className="inline-spacing"></div>
                                 <img src="/assets/arrow.svg" height="10px" />
@@ -185,22 +202,30 @@ class Home extends React.Component {
                         </a>
                     </div>
                 </Section>
-                <div ref="contact" className="container-fluid footer-background">
+                <div ref="contact"
+                     className="container-fluid footer-background">
                     <div className="container footer-content">
                         <div className="footer-top">
                             <div className="footer-title">
                                 Connect to IdeaFlow
                             </div>
-                            <a target="_blank" href="mailto:pleasecontact@ideapad.io" className="footer-button-link">
+                            <a target="_blank" href="mailto:pleasecontact@ideapad.io"
+                               className="footer-button-link">
                                 <i className="footer-icon fa fa-envelope" />
                             </a>
-                            <a target="_blank" href="https://twitter.com/IdeaFlowGraphs" className="footer-button-link">
+                            <a target="_blank" href="https://twitter.com/IdeaFlowGraphs"
+                               className="footer-button-link">
                                 <i className="footer-icon fa fa-twitter-square" />
                             </a>
                         </div>
                         <div>
                             {
-                                Object.keys(navigationItems).map((key) => <div className="footer-item" key={key}><a onClick={(event) => this.getNavigationItemHandler()(key)}>{ navigationItems[key] }</a></div>)
+                                Object.keys(navigationItems).map((key) =>
+                                    <div className="footer-item" key={key}>
+                                        <a onClick={(event) => this.getNavigationItemHandler()(key)}>
+                                            { navigationItems[key] }
+                                        </a>
+                                    </div>)
                             }
                         </div>
                         <div className="copyright">Copyright © IdeaFlow, Inc. 2016. All Rights Reserved.</div>

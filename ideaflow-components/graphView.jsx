@@ -33,6 +33,37 @@ class GraphView extends React.Component {
         this.renderGraph();
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return !this.nodesEqual(nextProps.nodes, this.props.nodes) ||
+          !this.nodesEqual(nextState.nodes, this.state.nodes) ||
+          !this.edgesEqual(nextProps.edges, this.props.edges) ||
+          !this.edgesEqual(nextState.edges, this.props.edges);
+    }
+
+    nodesEqual(nodes, otherNodes) {
+        if (nodes.length != otherNodes.length) {
+            return false;
+        }
+        for (var i = 0; i < nodes.length; i++) {
+            if (nodes[i].text != otherNodes[i].text) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    edgesEqual(edges, otherEdges) {
+        if (edges.length != otherEdges.length) {
+            return false;
+        }
+        for (var i = 0; i < edges.length; i++) {
+            if (edges[i].source != otherEdges[i].source || edges[i].target != otherEdges[i].target) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     render() {
         return (
             <div className="graph-view-container">

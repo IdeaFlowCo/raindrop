@@ -112,11 +112,15 @@
   margin-left: -30px;
 }
 
+.ideaflow-step.selected {
+  background: #D69CF4;
+}
+
 .ideaflow-step-middle {
   margin-left: 120px;
 }
 
-.ideaflow-step:hover, .ideaflow-step:active {
+.ideaflow-step:not(.selected):hover, .ideaflow-step:not(.selected):active {
   background: #FFF14F;
 }
 
@@ -125,7 +129,7 @@
 }
 
 .ideaflow-line, .ideaflow-line-right {
-  background: #FFE13F;
+  background: #FFFFFF;
   height: 2px;
   width: 120px;
   display: inline-block;

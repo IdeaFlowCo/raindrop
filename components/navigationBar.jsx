@@ -6,7 +6,10 @@ class NavigationBar extends React.Component {
         return (
             <div className="navigation">
                 <div className="navbar-header">
-                    <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+                    <button type="button"
+                            className="navbar-toggle collapsed"
+                            data-toggle="collapse" data-target="#navbar-collapse"
+                            aria-expanded="false">
                         <span className="sr-only">Toggle navigation</span>
                         <span className="icon-bar" />
                         <span className="icon-bar" />
@@ -16,7 +19,9 @@ class NavigationBar extends React.Component {
                 <div className="collapse navbar-collapse" id="navbar-collapse">
                     <ul className="nav navbar-nav navbar-right">
                         {
-                            Object.keys(navigationItems).map((key) => <li key={key}><a onClick={this.getItemHandler(key)}>{navigationItems[key]}</a></li>)
+                            Object.keys(navigationItems).map((key) => <li key={key}>
+                                <a onClick={this.getItemHandler(key)}>{navigationItems[key]}</a>
+                            </li>)
                         }
                     </ul>
                 </div>

@@ -1,10 +1,19 @@
-var React   = require('react');
+var React       = require('react');
+var classNames  = require('classnames');
 
 class Section extends React.Component {
     render() {
+        let imageClickable = this.props.imageOnClick !== undefined && this.props.imageOnClick !== null;
         let imageElement = this.props.imageUrl ? (
             <div className="section-image">
-                <img className={ this.props.imageClassName} width={this.props.imageWidth} height={this.props.imageHeight} src={ this.props.imageUrl }/>
+                <img onClick={this.props.imageOnClick}
+                    className={classNames({
+                        "pointer": imageClickable,
+                        "hover": imageClickable
+                    })}
+                    width={this.props.imageWidth}
+                    height={this.props.imageHeight}
+                    src={ this.props.imageUrl }/>
             </div>
         ) : null;
 
@@ -17,11 +26,10 @@ class Section extends React.Component {
             <div className={ `container-fluid ${this.props.className ? this.props.className : ''}` }>
                 <div className="container section-container">
                     { this.props.title ? titleElement : null }
-                    { this.props.imageBottom ? null : imageElement }
+                    { imageElement }
                     <div className="section-content">
                         { this.props.children }
                     </div>
-                    { this.props.imageBottom ? imageElement : null }
                 </div>
             </div>
         );

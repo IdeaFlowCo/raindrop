@@ -9,10 +9,11 @@ var Home      = require('./pages/home.jsx');
 var app = express();
 var port = process.env.PORT || 3000;
 
-var env = process.argv[2] || 'dev';
+var env = process.env.SERVER_TYPE || 'dev';
+
 var production = false;
 switch (env) {
-  case 'prod': {
+  case 'production': {
     production = true;
     break;
   }
